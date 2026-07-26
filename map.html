@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neighborhood Map | Ybor Heights</title>
+  <meta name="description" content="Interactive map of Ybor Heights locations — local businesses, parks, Ybor City favorites, and homes for sale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Ybor <span>Heights</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">Businesses</a>
+        <a href="map.html" aria-current="page">Map</a>
+        <a href="homes.html">Homes for Sale</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="utilities.html">Utilities</a>
+        <a href="report.html">Report Activity</a>
+        <a href="grants.html">Grants</a>
+        <a href="community.html">Community</a>
+        <a href="suggestions.html">Suggestions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1>Neighborhood map</h1>
+      <p>Every place called out across this site — Heights hangouts, nearby Ybor favorites, and currently listed homes — on one map.</p>
+    </div>
+
+    <section class="section" style="padding-top: 1rem;">
+      <div class="alert" data-reveal>
+        <strong>Bounds:</strong> Ybor Heights runs roughly from Martin Luther King Jr. Blvd to the north, N. 15th St to the east, E. 26th Ave to the south, and I-275 to the west. The dashed outline on the map is approximate.
+      </div>
+
+      <div class="map-layout" data-reveal>
+        <div class="map-panel">
+          <div class="map-toolbar">
+            <div class="map-filter">
+              <label for="mapFilter">Show</label>
+              <select id="mapFilter">
+                <option value="all">All locations</option>
+                <option value="neighborhood">In the Heights</option>
+                <option value="ybor">Nearby Ybor</option>
+                <option value="homes">Homes for sale</option>
+              </select>
+            </div>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="map-pin map-pin-neighborhood"></i> Heights</span>
+              <span><i class="map-pin map-pin-ybor"></i> Ybor</span>
+              <span><i class="map-pin map-pin-homes"></i> Homes</span>
+            </div>
+            <p class="map-count" id="mapCount" aria-live="polite"></p>
+          </div>
+          <div id="neighborhoodMap" class="neighborhood-map" role="region" aria-label="Interactive map of Ybor Heights locations"></div>
+          <p class="map-hint">Click the map to enable scroll zoom. Listing pins point to addresses on the Homes page — verify status on the MLS.</p>
+        </div>
+
+        <aside class="map-side">
+          <h2>Places on this site</h2>
+          <div id="mapLocationList" class="map-location-list"></div>
+        </aside>
+      </div>
+
+      <div class="section-head" style="margin-top: 3rem;" data-reveal>
+        <h2>Explore from here</h2>
+        <p>Jump back to the directories and listings that feed this map.</p>
+      </div>
+      <div class="link-grid" data-reveal>
+        <a class="link-tile" href="businesses.html">
+          <h3>Local businesses</h3>
+          <p>Breweries, bakeries, parks, and Ybor City favorites.</p>
+          <div class="meta">Browse directory</div>
+        </a>
+        <a class="link-tile" href="homes.html">
+          <h3>Homes for sale</h3>
+          <p>Active and recently marketed addresses pinned above.</p>
+          <div class="meta">See listings</div>
+        </a>
+        <a class="link-tile" href="calendar.html">
+          <h3>Events calendar</h3>
+          <p>Markets at Centennial Park and meetings at Ragan Park.</p>
+          <div class="meta">Open calendar</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>Ybor Heights</h3>
+        <p>Map pins are compiled from places and listings elsewhere on this neighborhood hub.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="businesses.html">Local businesses</a>
+        <a href="homes.html">Homes for sale</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h3>Safety</h3>
+        <a href="report.html">Report suspicious activity</a>
+        <a href="tel:8132316130">Non-emergency: (813) 231-6130</a>
+      </div>
+    </div>
+    <p class="footer-note">Map data © OpenStreetMap contributors. Addresses can change — confirm before you go.</p>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
