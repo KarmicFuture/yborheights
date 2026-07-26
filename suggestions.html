@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suggestions | Ybor Heights</title>
+  <meta name="description" content="Share suggestions for the Ybor Heights neighborhood website, events, safety, or community improvements.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Ybor <span>Heights</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">Businesses</a>
+        <a href="homes.html">Homes for Sale</a>
+        <a href="utilities.html">Utilities</a>
+        <a href="report.html">Report Activity</a>
+        <a href="grants.html">Grants</a>
+        <a href="community.html">Community</a>
+        <a href="suggestions.html" aria-current="page">Suggestions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1>Suggestions</h1>
+      <p>Tell neighbors what to improve — website updates, events, safety ideas, businesses to add, or grant project pitches for Ybor Heights.</p>
+    </div>
+
+    <section class="section" style="padding-top: 1rem;">
+      <div class="alert" data-reveal>
+        <strong>Emergencies:</strong> Do not use this form for crimes in progress — call <a href="tel:911">911</a> or use the <a href="report.html">Report Activity</a> page for Tampa tip lines.
+      </div>
+
+      <div class="form-panel" data-reveal>
+        <div class="form-success" id="suggestionSuccess" role="status">Thanks — your email draft is ready. Send it to finish sharing your suggestion with the Neighborhood Association.</div>
+        <p class="form-hint">Submissions open your email app addressed to <strong>yborheightsna@gmail.com</strong>. Nothing is stored on this website.</p>
+
+        <form id="suggestionForm">
+          <div class="form-group">
+            <label for="name">Your name (optional)</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Neighbor">
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+              <option value="">Select one</option>
+              <option>Website improvement</option>
+              <option>Local business to add</option>
+              <option>Event or activity idea</option>
+              <option>Safety / neighborhood watch</option>
+              <option>Grant or funding idea</option>
+              <option>Homes / housing info</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="suggestion">Your suggestion</label>
+            <textarea id="suggestion" name="suggestion" required placeholder="What should we add, fix, or try next in Ybor Heights?"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send suggestion</button>
+        </form>
+      </div>
+
+      <div class="utility-group" data-reveal style="margin-top: 2.5rem;">
+        <h2>Other ways to be heard</h2>
+        <div class="link-grid">
+          <a class="link-tile" href="mailto:yborheightsna@gmail.com">
+            <h3>Email the Association</h3>
+            <p>Direct line for civic questions, meeting topics, and mailing-list signup.</p>
+            <div class="meta">yborheightsna@gmail.com</div>
+          </a>
+          <a class="link-tile" href="community.html">
+            <h3>Monthly meeting</h3>
+            <p>Third Wednesday, 6:30pm at Ragan Park Community Center — bring ideas in person.</p>
+            <div class="meta">Community page</div>
+          </a>
+          <a class="link-tile" href="grants.html">
+            <h3>Neighborhood grants</h3>
+            <p>See funding programs Heights associations can use for projects.</p>
+            <div class="meta">Grants page</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>Ybor Heights</h3>
+        <p>Neighbor suggestions help keep this hub useful for everyone who lives here.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="grants.html">Neighborhood grants</a>
+        <a href="community.html">Community</a>
+        <a href="businesses.html">Businesses</a>
+      </div>
+      <div>
+        <h3>Safety</h3>
+        <a href="report.html">Report suspicious activity</a>
+        <a href="tel:911">Emergency: 911</a>
+      </div>
+    </div>
+    <p class="footer-note">Suggestions are sent by email from your device. Not an official City of Tampa website.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("suggestionForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = document.getElementById("name").value.trim() || "Neighbor";
+      var email = document.getElementById("email").value.trim();
+      var category = document.getElementById("category").value;
+      var suggestion = document.getElementById("suggestion").value.trim();
+      var body = [
+        "Category: " + category,
+        "From: " + name + (email ? " <" + email + ">" : ""),
+        "",
+        suggestion,
+        "",
+        "— Sent from the Ybor Heights suggestions page"
+      ].join("\n");
+      var mailto =
+        "mailto:yborheightsna@gmail.com" +
+        "?subject=" + encodeURIComponent("Ybor Heights suggestion: " + category) +
+        "&body=" + encodeURIComponent(body);
+      document.getElementById("suggestionSuccess").classList.add("is-visible");
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
