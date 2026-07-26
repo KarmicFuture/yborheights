@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Events Calendar | Ybor Heights</title>
+  <meta name="description" content="Ybor Heights local events calendar — neighborhood meetings, Saturday Market, Night Market, and nearby community activities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Ybor <span>Heights</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="businesses.html">Businesses</a>
+        <a href="homes.html">Homes for Sale</a>
+        <a href="calendar.html" aria-current="page">Calendar</a>
+        <a href="utilities.html">Utilities</a>
+        <a href="report.html">Report Activity</a>
+        <a href="grants.html">Grants</a>
+        <a href="community.html">Community</a>
+        <a href="suggestions.html">Suggestions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1>Local events calendar</h1>
+      <p>Neighborhood meetings, markets, and nearby happenings for Ybor Heights. Click a day for details — times can change, so verify with the organizer.</p>
+    </div>
+
+    <section class="section" style="padding-top: 1rem;">
+      <div class="alert" data-reveal>
+        <strong>Standing dates:</strong> Ybor Heights NA meets the <strong>third Wednesday</strong> at 6:30pm (Ragan Park).
+        Saturday Market runs weekly in Centennial Park; Night Market is typically the <strong>third Friday</strong>.
+        Follow <a href="https://www.instagram.com/deviantlibation/" target="_blank" rel="noopener noreferrer">@deviantlibation</a> for brewery nights on Nebraska Ave.
+      </div>
+
+      <div class="cal-layout" data-reveal>
+        <div class="cal-panel">
+          <div class="cal-toolbar">
+            <button type="button" class="btn btn-outline" id="calPrev" aria-label="Previous month">Prev</button>
+            <h2 id="calMonthLabel">Month</h2>
+            <button type="button" class="btn btn-outline" id="calNext" aria-label="Next month">Next</button>
+          </div>
+
+          <div class="cal-controls">
+            <label class="cal-filter">
+              <span>Filter</span>
+              <select id="calFilter">
+                <option value="all">All events</option>
+                <option value="neighborhood">Neighborhood</option>
+                <option value="market">Markets</option>
+                <option value="nearby">Nearby</option>
+                <option value="civic">Civic</option>
+              </select>
+            </label>
+            <fieldset class="cal-view-toggle">
+              <legend>List</legend>
+              <label><input type="radio" name="calView" value="day" checked> Selected day</label>
+              <label><input type="radio" name="calView" value="month"> Full month</label>
+            </fieldset>
+          </div>
+
+          <div class="cal-legend" aria-hidden="true">
+            <span><i class="cal-dot cat-neighborhood"></i> Neighborhood</span>
+            <span><i class="cal-dot cat-market"></i> Market</span>
+            <span><i class="cal-dot cat-nearby"></i> Nearby</span>
+            <span><i class="cal-dot cat-civic"></i> Civic</span>
+          </div>
+
+          <div class="cal-grid" id="calGrid" role="grid" aria-labelledby="calMonthLabel"></div>
+        </div>
+
+        <div class="cal-side">
+          <h2 id="calSelectedDate">Selected day</h2>
+          <div id="calEventList" class="cal-event-list"></div>
+        </div>
+      </div>
+
+      <div class="utility-group" data-reveal>
+        <h2>More calendars</h2>
+        <div class="link-grid">
+          <a class="link-tile" href="https://www.tampa.gov/calendar" target="_blank" rel="noopener noreferrer">
+            <h3>City of Tampa calendar</h3>
+            <p>Official meetings, park programs, and citywide events.</p>
+            <div class="meta">tampa.gov/calendar</div>
+          </a>
+          <a class="link-tile" href="https://ybormarket.com/" target="_blank" rel="noopener noreferrer">
+            <h3>Ybor Saturday Market</h3>
+            <p>Weekly market details and vendor info in Centennial Park.</p>
+            <div class="meta">ybormarket.com</div>
+          </a>
+          <a class="link-tile" href="https://vmybor.org/events" target="_blank" rel="noopener noreferrer">
+            <h3>V.M. Ybor events</h3>
+            <p>Neighboring association calendar — tours, films, and park gatherings.</p>
+            <div class="meta">vmybor.org/events</div>
+          </a>
+          <a class="link-tile" href="https://www.instagram.com/deviantlibation/" target="_blank" rel="noopener noreferrer">
+            <h3>Deviant Libation</h3>
+            <p>Live music, can releases, and taproom events in Ybor Heights.</p>
+            <div class="meta">@deviantlibation</div>
+          </a>
+          <a class="link-tile" href="suggestions.html">
+            <h3>Submit an event</h3>
+            <p>Know a block party, cleanup, or meeting we should list? Send a suggestion.</p>
+            <div class="meta">Suggestions form</div>
+          </a>
+          <a class="link-tile" href="community.html">
+            <h3>Community &amp; social</h3>
+            <p>Facebook groups and Instagram hubs where last-minute events get posted.</p>
+            <div class="meta">Community page</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>Ybor Heights</h3>
+        <p>This calendar mixes recurring neighborhood dates with researched nearby events. Always confirm before you go.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="community.html">Community</a>
+        <a href="suggestions.html">Suggest an event</a>
+        <a href="grants.html">Grants</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:yborheightsna@gmail.com">yborheightsna@gmail.com</a>
+        <a href="https://yborheightsna.mailchimpsites.com/" target="_blank" rel="noopener noreferrer">Neighborhood Association</a>
+      </div>
+    </div>
+    <p class="footer-note">Not an official City of Tampa calendar. Event details change — verify with organizers.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+</html>

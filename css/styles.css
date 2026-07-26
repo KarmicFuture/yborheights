@@ -757,6 +757,287 @@ a:hover {
   color: var(--ink-soft);
 }
 
+.cal-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.cal-panel,
+.cal-side {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.cal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cal-toolbar h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--leaf-deep);
+  text-align: center;
+}
+
+.cal-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: end;
+  margin-bottom: 0.85rem;
+}
+
+.cal-filter {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--leaf-deep);
+}
+
+.cal-filter select {
+  min-width: 160px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  background: var(--white);
+}
+
+.cal-view-toggle {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.cal-view-toggle legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--leaf-deep);
+  padding: 0;
+  margin-right: 0.25rem;
+}
+
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.cal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.cal-weekday {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0.35rem 0;
+}
+
+.cal-day {
+  min-height: 64px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.cal-day:hover {
+  border-color: var(--copper);
+  transform: translateY(-1px);
+}
+
+.cal-day.is-empty {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cal-day.is-today {
+  box-shadow: inset 0 0 0 1.5px var(--leaf);
+}
+
+.cal-day.is-selected {
+  background: rgba(42, 77, 58, 0.1);
+  border-color: var(--leaf);
+}
+
+.cal-day-num {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--leaf-deep);
+}
+
+.cal-day-dots {
+  display: flex;
+  gap: 0.2rem;
+  margin-top: auto;
+}
+
+.cal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--ink-soft);
+}
+
+.cal-dot.cat-neighborhood { background: var(--leaf); }
+.cal-dot.cat-market { background: var(--copper); }
+.cal-dot.cat-nearby { background: #3d6f8f; }
+.cal-dot.cat-civic { background: #6b4e71; }
+.cal-dot.cat-nightlife { background: #8a4b2a; }
+
+.cal-side h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--leaf-deep);
+}
+
+.cal-event-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cal-event {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.85rem;
+  padding: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(246, 248, 246, 0.85);
+}
+
+.cal-event-when {
+  display: grid;
+  gap: 0.25rem;
+  align-content: start;
+}
+
+.cal-event-when strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--leaf-deep);
+  line-height: 1.25;
+}
+
+.cal-event-when span {
+  font-size: 0.85rem;
+  color: var(--copper);
+  font-weight: 700;
+}
+
+.cal-event-body h3 {
+  margin: 0.25rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--leaf-deep);
+}
+
+.cal-event-body p {
+  margin: 0 0 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.cal-event-place {
+  font-weight: 600;
+  color: var(--ink) !important;
+}
+
+.cal-event-cat {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius);
+  background: rgba(27, 36, 32, 0.08);
+  color: var(--ink-soft);
+}
+
+.cal-event-cat.cat-neighborhood {
+  background: rgba(42, 77, 58, 0.14);
+  color: var(--leaf-deep);
+}
+
+.cal-event-cat.cat-market {
+  background: rgba(184, 115, 51, 0.16);
+  color: #7a4a18;
+}
+
+.cal-event-cat.cat-nearby {
+  background: rgba(61, 111, 143, 0.14);
+  color: #24485c;
+}
+
+.cal-event-cat.cat-civic {
+  background: rgba(107, 78, 113, 0.14);
+  color: #4a3550;
+}
+
+.cal-empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .cal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cal-event {
+    grid-template-columns: 1fr;
+  }
+
+  .cal-day {
+    min-height: 52px;
+  }
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(16px);
