@@ -448,7 +448,14 @@ a:hover {
 .listing-note {
   color: var(--ink-soft);
   font-size: 0.9rem;
-  margin: 0 0 auto;
+  margin: 0 0 0.85rem;
+}
+
+.listing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin-top: auto;
 }
 
 .gallery {

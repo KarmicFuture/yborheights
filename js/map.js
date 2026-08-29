@@ -383,7 +383,48 @@
     });
   }
 
-  render();
+  function requestedLocationId() {
+    var params = new URLSearchParams(window.location.search);
+    var fromQuery = params.get("loc");
+    if (fromQuery) return fromQuery;
+    var hash = window.location.hash.replace(/^#/, "");
+    return hash || null;
+  }
+
+  function applyInitialState() {
+    var params = new URLSearchParams(window.location.search);
+    var filter = params.get("filter");
+    if (filterEl && filter && ["all", "neighborhood", "ybor", "homes"].indexOf(filter) !== -1) {
+      filterEl.value = filter;
+    }
+
+    var requested = requestedLocationId();
+    if (requested) {
+      var loc = locations.find(function (item) {
+        return item.id === requested;
+      });
+      if (loc && filterEl) {
+        filterEl.value = loc.category;
+      }
+    }
+
+    render();
+
+    if (requested) {
+      var target = locations.find(function (item) {
+        return item.id === requested;
+      });
+      if (target) {
+        activeId = target.id;
+        render();
+        setTimeout(function () {
+          focusLocation(target, true);
+        }, 120);
+      }
+    }
+  }
+
+  applyInitialState();
 
   setTimeout(function () {
     map.invalidateSize();
